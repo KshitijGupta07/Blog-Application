@@ -1,0 +1,8 @@
+:root {
+  --gradient: linear-gradient(135deg, #6366f1, #10b981, #f59e0b);
+}
+.btn-gradient { background-image: var(--gradient); color: #fff; border: none; }
+.btn-gradient:hover { opacity: .92; }
+.card-ghost { background: rgba(255,255,255,.8); backdrop-filter: blur(6px); border-radius: 1rem; }
+.navbar-brand-gradient { background-image: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 800; }
+.prose { white-space: pre-wrap; }
