@@ -1,20 +1,18 @@
+import dbConnect from "@/lib/dbConnect";
+import Post from "@/models/Post";
 import { auth } from "@/auth";
+import AccountClient from "./AccountClient"
 
-export default async function AccountPage() {
+export const runtime = "nodejs";
+
+export default async function AccountServerPage() {
   const session = await auth();
-  if (!session?.user) return <p className="text-center text-muted">Please sign in.</p>;
+  if (!session?.user) return <p className="text-center">Please sign in.</p>;
 
-  return (
-    <div className="card card-ghost border-0 shadow-sm p-4">
-      <h2 className="h3">Account</h2>
-      <div className="row g-3 mt-1">
-        <div className="col-sm-6">
-          <div className="p-3 border rounded">Name: {session.user.name}</div>
-        </div>
-        <div className="col-sm-6">
-          <div className="p-3 border rounded">Email: {session.user.email}</div>
-        </div>
-      </div>
-    </div>
-  );
+  await dbConnect();
+  const posts = await Post.find({ authorId: session.user.id })
+    .sort({ createdAt: -1 })
+    .lean();
+
+  return <AccountClient posts={JSON.parse(JSON.stringify(posts))} session={session} />;
 }
