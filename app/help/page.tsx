@@ -6,7 +6,7 @@ export default function HelpPage() {
       <h1 className="h3 mb-2">Help & Support</h1>
       <p className="lead text-body-secondary">If you need any help, just contact me on <strong>Instagram</strong> or <strong>Email</strong>.</p>
       <div className="d-flex justify-content-center gap-3 mt-3">
-        <Link href="https://instagram.com/your_instagram_username" target="_blank" className="btn btn-gradient d-flex align-items-center gap-2">
+        <Link href="https://www.instagram.com/kshitij_0417_/" target="_blank" className="btn btn-gradient d-flex align-items-center gap-2">
           <i className="bi bi-instagram fs-4" /> Instagram
         </Link>
         <a href="mailto:kshitijvgupta@gmail.com" className="btn btn-outline-primary d-flex align-items-center gap-2">
