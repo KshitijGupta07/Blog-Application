@@ -30,7 +30,7 @@ export default function AboutPage() {
 
           <div className="d-flex gap-2 justify-content-center mt-3">
             <Link
-              href="https://instagram.com/your_instagram_here"
+              href="https://www.instagram.com/kshitij_0417_/"
               className="btn btn-outline-secondary d-inline-flex align-items-center gap-2"
               target="_blank"
               rel="noopener noreferrer"
