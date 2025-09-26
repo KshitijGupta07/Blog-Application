@@ -1,11 +1,14 @@
 "use client";
-import { useTransition } from "react";
 
-export default function LogoutButton({ onClick }: { onClick: () => Promise<void> }) {
-  const [pending, start] = useTransition();
+import { signOut } from "next-auth/react";
+
+export default function LogoutButton() {
   return (
-    <button onClick={() => start(onClick)} className="btn btn-danger" disabled={pending}>
-      {pending ? "Logging out..." : "Logout"}
+    <button
+      className="btn btn-danger"
+      onClick={() => signOut({ callbackUrl: "/" })}
+    >
+      Logout
     </button>
   );
 }
