@@ -16,7 +16,7 @@ export default function HelpPage() {
       <hr className="my-4" />
       <div>
         <p className="mb-1 fw-semibold">Connect with me:</p>
-        <p><i className="bi bi-instagram text-danger me-2" /><Link href="https://www.instagram.com/kshitij_0417_/" target="_blank">instagram.com/your_instagram_username</Link></p>
+        <p><i className="bi bi-instagram text-danger me-2" /><Link href="https://www.instagram.com/kshitij_0417_/" target="_blank">https://www.instagram.com/kshitij_0417_/</Link></p>
         <p><i className="bi bi-envelope-fill text-primary me-2" /><a href="mailto:kshitijvgupta@gmail.com">kshitijvgupta@gmail.com</a></p>
       </div>
     </div>
