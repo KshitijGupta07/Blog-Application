@@ -3,6 +3,7 @@ import Post from "@/models/Post";
 import PostList from "@/components/PostList";
 
 export const runtime = "nodejs";
+export const revalidate = 0; // always fetch fresh posts
 
 export default async function PostsPage() {
   await dbConnect();
