@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/auth";
 import dbConnect from "@/lib/dbConnect";
 import Post from "@/models/Post";
+import mongoose from "mongoose";
 
 export const runtime = "nodejs";
 
@@ -23,7 +24,7 @@ export async function POST(req: NextRequest) {
     title,
     content,
     imageUrl: typeof imageUrl === "string" && imageUrl.trim() ? imageUrl.trim() : undefined,
-    authorId: (session.user as any).id,
+    authorId: new mongoose.Types.ObjectId((session.user as any).id),
     authorName: session.user.name ?? undefined,
   });
 
@@ -35,9 +36,11 @@ export async function GET(req: NextRequest) {
   await dbConnect();
 
   try {
-    // Fetch all posts, newest first
-    const posts = await Post.find({}).populate("authorId","name").sort({ createdAt: -1 }).lean();
-    console.log(posts)
+    const posts = await Post.find({})
+      .populate("authorId", "name")
+      .sort({ createdAt: -1 })
+      .lean();
+
     return NextResponse.json(posts, { status: 200 });
   } catch (error) {
     console.error(error);
