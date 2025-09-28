@@ -37,6 +37,7 @@ export async function GET(req: NextRequest) {
   try {
     // Fetch all posts, newest first
     const posts = await Post.find({}).populate("authorId","name").sort({ createdAt: -1 }).lean();
+    console.log(posts)
     return NextResponse.json(posts, { status: 200 });
   } catch (error) {
     console.error(error);
