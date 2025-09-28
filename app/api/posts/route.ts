@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
       .populate("authorId", "name")
       .sort({ createdAt: -1 })
       .lean();
-
+    console.log(posts)
     return NextResponse.json(posts, { status: 200 });
   } catch (error) {
     console.error(error);
