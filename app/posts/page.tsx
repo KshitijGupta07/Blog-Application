@@ -14,6 +14,7 @@ export default async function PostsPage() {
     .populate("authorId", "name")  // ensures author info is available
     .sort({ createdAt: -1 })       // newest posts first
     .lean();
+  console.log(posts)
 
   return (
     <div className="space-y-6">
