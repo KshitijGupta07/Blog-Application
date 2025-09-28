@@ -9,7 +9,12 @@ export default async function Dashboard() {
   if (!session?.user) return <p className="text-center text-muted">Please sign in.</p>;
 
   await dbConnect();
-  const posts = await Post.find({ authorId: (session.user as any).id }).sort({ createdAt: -1 }).lean();
+
+  // Fetch all posts, newest first, and populate author info
+  const posts = await Post.find({})
+    .populate("authorId", "name") // populate author name
+    .sort({ createdAt: -1 })
+    .lean();
 
   return (
     <div className="vstack gap-3">
