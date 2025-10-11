@@ -4,7 +4,7 @@ const UserSchema = new Schema(
   {
     name: String,
     email: { type: String, required: true, unique: true },
-    image: String,
+    
     // keep selectable so credentials login can read it when requested
     passwordHash: { type: String, select: false },
   },
